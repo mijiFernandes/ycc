@@ -10,13 +10,13 @@
 
     <form action="." method="post"> {% csrf_token %}
         <div class="form-group row">
-            <div style="width: 15%;">
+            <div style="width: 25%;">
             {{ form.search_word|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
             </div>
-            <div class="col-sm-3" style="float: left; width: 45%;">
+            <div class="col-sm-3" style="float: left; width: 50%;">
                 {{ form.search_word|add_class:"form-control"|attr:"autofocus" }}
             </div>
-            <div style="margin:auto; float: left; width: 80%;">
+            <div style="margin:auto; float: left; width: 25%;">
                     <input type="submit" value="Submit" class="btn btn-primary btn-sm">
             </div>
         </div>
