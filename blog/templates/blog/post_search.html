@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}post_search.html{% endblock %}
+
+{% block content %}
+
+    <h1>Blog Search</h1>
+    <br>
+
+    <form action="." method="post"> {% csrf_token %}
+        <div class="form-group row">
+            {{ form.search_word|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-5">
+                {{ form.search_word|add_class:"form-control"|attr:"autofocus" }}
+            </div>
+            <div class="col-sm-5" style="margin:auto;">
+                <div>
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br/><br/>
+
+    {% if object_list %}
+        {% for post in object_list %}
+        <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
+        {{ post.modify_dt|date:"N d, Y" }}
+        <p>{{ post.description }}</p>
+        {% endfor %}
+
+    {% elif search_term %}
+    <b><i>Search Word({{ search_term }}) Not Found !</i></b>
+    {% endif %}
+
+{% endblock %}
