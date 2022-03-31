@@ -22,8 +22,9 @@
         {{ post.modify_dt|date:"N d, Y" }}
         <p>{{ post.owner.get_username }}</p>
         {% endfor %}
+    {% endif %}
 
-    {% elif search_term %}
+    {% if !object_list1 && !object_list2 %}
     <b><i>Search Word({{ search_term }}) Not Found !</i></b>
     {% endif %}
 
