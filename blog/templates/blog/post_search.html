@@ -10,7 +10,9 @@
 
     <form action="." method="post"> {% csrf_token %}
         <div class="form-group row">
+            <div style="width: 15%;">
             {{ form.search_word|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            </div>
             <div class="col-sm-3" style="float: left; width: 33%;">
                 {{ form.search_word|add_class:"form-control"|attr:"autofocus" }}
             </div>
