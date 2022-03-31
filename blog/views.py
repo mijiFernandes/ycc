@@ -62,8 +62,9 @@ class SearchFormView(FormView):
 
     def form_valid(self, form):
         searchWord = form.cleaned_data['search_word']
-        post_list1 = Post.objects.filter(Q(title__icontains=searchWord)).distinct()
-        post_list2 = Post.objects.filter(Q(content__icontains=searchWord)).distinct()
+        post_list1 = Post.objects.filter(Q(content__icontains=searchWord)).distinct()
+        post_list_semi = Post.objects.exclude(Q(content__icontains=searchWord)).distinct()
+        post_list2 = post_list_semi.filter(Q(title__icontains=searchWord)).distinct()
 
         context = {}
         context['form'] = form
