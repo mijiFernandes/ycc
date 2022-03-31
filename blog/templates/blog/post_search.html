@@ -5,16 +5,16 @@
 
 {% block content %}
 
-    <h1>Blog Search</h1>
+    <h1>PA8 Search</h1>
     <br>
 
     <form action="." method="post"> {% csrf_token %}
         <div class="form-group row">
             {{ form.search_word|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
-            <div class="col-sm-5">
+            <div class="col-sm-3" autocomplete="off">
                 {{ form.search_word|add_class:"form-control"|attr:"autofocus" }}
             </div>
-            <div class="col-sm-5" style="margin:auto;">
+            <div class="col-sm-7" style="margin:auto;">
                 <div>
                     <input type="submit" value="Submit" class="btn btn-primary btn-sm">
                 </div>

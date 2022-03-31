@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
 from django.views.generic.dates import DayArchiveView, TodayArchiveView
@@ -71,7 +69,7 @@ class SearchFormView(FormView):
         context['search_term'] = searchWord
         context['object_list'] = post_list
 
-        return render(self.request, self.template_name, context)
+        return render(self.request, 'blog/post_search2.html', context)
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):

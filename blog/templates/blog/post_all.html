@@ -3,8 +3,10 @@
 {% block content %}
 
     <h1>Blog List</h1>
+    <div align="right">
+        <a href="{% url 'blog:add' %}" style=""><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" style="background-color: #0d6efd; color: #FFFFFF;">Post</button></a>
+    </div>
     <br>
-
     {% for post in posts %}
         <h3 align="right" style="float:right">{{ post.owner.get_username }}</h3>
         <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
