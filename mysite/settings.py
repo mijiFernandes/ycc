@@ -27,6 +27,14 @@ DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['*']
 
+POINTS_SETTINGS = {
+    "LOGIN": 5,
+    "LOGIN_STAY": 5,
+    "CREATE_ARTICLE": 5,
+    "ARTICLE_REPLY": 5,
+}
+
+AUTH_USER_MODEL = 'account.User'
 
 # Application definition
 
@@ -39,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'blog.apps.BlogConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [

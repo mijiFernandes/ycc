@@ -17,27 +17,18 @@
 
     <h2>{{ object.title }}</h2>
 
-    <p>
-        {% if object.get_previous %}
-        <a href="{{ object.get_previous.get_absolute_url }}" title="View previous post">
-            <i class="fas fa-arrow-circle-left"></i> {{ object.get_previous }}
-        </a>
-        {% endif %}
-
-        {% if object.get_next %}
-        | <a href="{{ object.get_next.get_absolute_url }}" title="View next post">
-        {{ object.get_next }} <i class="fas fa-arrow-circle-right"></i>
-        </a>
-        {% endif %}
-    </p>
-
-    <p>{{ object.modify_dt|date:"j F Y" }}</p>
     <br>
 
     <div>
         {{ object.content|linebreaks }}
     </div>
 
+</div>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" style="background-color: #0d6efd; color: #FFFFFF;"></button></a>
+
+<div align="right">
+    <a href="{% url 'register_done' %}" style=""><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" style="background-color: #0d6efd; color: #FFFFFF;"></button></a>
 </div>
 
 {% endblock %}

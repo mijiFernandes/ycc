@@ -1,14 +1,36 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}register_done.html{% endblock %}
 
 {% block content %}
 
-    <h1>Registration Completed Successfully</h1>
+    <h1>시간표 등록하기</h1>
     <br>
 
-    <p>Thank you for registering.</p>
+    <form action="." method="post"> {% csrf_token %}
+        <div class="form-group row">
+            <div style="width: 25%;">
+            {{ form.search_word|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            </div>
+            <div class="col-sm-3" style="float: left; width: 50%;">
+                {{ form.search_word|add_class:"form-control"|attr:"autofocus" }}
+            </div>
+            <div style="margin:auto; float: left; width: 25%;">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+            </div>
+        </div>
+    </form>
 
-    <p class="font-italic"><a href="{% url 'login' %}">Log in</a></p>
+    <br/><br/>
+
+    {% if object_list %}
+        {% for post in object_list %}
+        <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
+        {% endfor %}
+
+    {% elif search_term %}
+    <b><i>Search Word({{ search_term }}) Not Found !</i></b>
+    {% endif %}
 
 {% endblock %}

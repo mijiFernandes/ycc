@@ -5,7 +5,7 @@
 
 {% block content %}
 
-    <h1>PA8 Search</h1>
+    <h1>시간표 등록</h1>
     <br>
 
     <form action="." method="post"> {% csrf_token %}
@@ -27,8 +27,6 @@
     {% if object_list %}
         {% for post in object_list %}
         <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
-        {{ post.modify_dt|date:"N d, Y" }}
-        <p>{{ post.owner.get_username }}</p>
         {% endfor %}
 
     {% elif search_term %}
